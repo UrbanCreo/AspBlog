@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AspBlog.Models.Article>
+
+@{
+    ViewData["Title"] = "Seznam článků";
+}
+
+<section class="portfolio" id="portfolio">
+    <h2 class="heading">Mé <span>Články</span></h2>
+    @if (User.IsInRole("admin"))
+    {
+        <p>
+            <a class="btn" asp-action="Create">Vytvořit nový</a>
+        </p>
+    }
+    <ul class="list-group" id="clanky">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                <h2><a asp-action="Details" class="title" asp-route-id="@item.Id">@item.Title</a></h2>
+                <p>@item.Description</p>
+                @if (User.IsInRole("admin"))
+                {
+                    <p>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editovat</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Odstranit</a>
+                    </p>
+                }
+            </li>
+        }
+    </ul>
+</section>

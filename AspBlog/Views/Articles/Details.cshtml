@@ -1,0 +1,35 @@
+﻿@model AspBlog.Models.Article
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section>
+    <div class="list-group-item">
+        <p>Článek <span><b>@Model.Title</b></span></p>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+        <form asp-action="Edit">
+            <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+            <a class="article-btn" asp-action="Index">Zpět na seznam</a>
+        </form>
+    </div>
+</section>

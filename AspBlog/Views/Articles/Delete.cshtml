@@ -1,0 +1,36 @@
+﻿@model AspBlog.Models.Article
+
+@{
+    ViewBag.Title = "Odstranění";
+}
+
+<section>
+    <div class="list-group-item">
+        <p>Opravdu chcete vymazat článek <span><b>@Model.Title</b></span>?</p>
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="clanky-tlacitko">Odstranit</button>
+            <a class="clanky-tlacitko" asp-action="Index">Zpět na seznam článků</a>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osobní webové stránky</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+    <link rel="shortcut icon" href="~/images/ikona.ico" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- header design -->
+    <header class="header">
+        <!--<a href="#" class="logo">Portfolio</a>-->
+        <div class="logo">
+            <h1><span>Urban</span></h1><small>webdeveloper</small>
+        </div>
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a asp-controller="Home" asp-action="Index">Domů</a>
+            <a asp-controller="Articles" asp-action="Index">Články</a>
+            <a asp-controller="Home" asp-action="Skills">Dovednosti</a>
+            <a asp-controller="Home" asp-action="References">Reference</a>
+            <a class="kontakt-tlacitko" asp-controller="Home" asp-action="Contact">Kontakt</a>
+        </nav>
+    </header>
+    @RenderBody()
+    <!-- footer design -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2023 Urban</p>
+        </div>
+    </footer>
+
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/lightbox2/js/lightbox.min.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
